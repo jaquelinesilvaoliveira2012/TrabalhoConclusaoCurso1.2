@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <EditText
+        android:layout_width="match_parent"
+        android:hint="Usuario"
+        android:layout_height="wrap_content"
+        android:id="@+id/editText3" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:hint="idade"
+        android:layout_height="wrap_content"
+        android:id="@+id/editText4" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:hint="senha"
+        android:layout_height="wrap_content"
+        android:id="@+id/editText5" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Cadastrar"
+        android:id="@+id/btCadastrar"
+        android:layout_gravity="center_horizontal"
+        android:onClick="cadastrarUsuario"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Mostrar Usuarios"
+        android:onClick="mostrarUsuarios"
+        android:id="@+id/button4"
+        android:layout_gravity="center_horizontal" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Excluir Usuarios"
+        android:id="@+id/button5"
+        android:layout_gravity="center_horizontal"
+        android:onClick="excluirUsuarios"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Voltar"
+        android:id="@+id/btVoltar"
+        android:layout_gravity="center_horizontal"
+        android:onClick="voltarJanela"/>
+</LinearLayout>
