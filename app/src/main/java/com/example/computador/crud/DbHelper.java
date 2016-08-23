@@ -6,6 +6,7 @@ import android.database.Cursor;
 import android.database.DatabaseErrorHandler;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,7 +19,9 @@ public class DbHelper extends SQLiteOpenHelper {
     private static final String NOME_BASE = "CadastroUsuario";
     private static final int VERSAO_BASE = 3;
     private SQLiteDatabase db;
-    public DbHelper(Context context) { super(context, NOME_BASE, null, 3);
+
+    public DbHelper(Context context) {
+        super(context, NOME_BASE, null, 3);
     }
 
     @Override
@@ -53,7 +56,6 @@ public class DbHelper extends SQLiteOpenHelper {
 
         ContentValues cv = new ContentValues();
 
-        long resultado;
 
         cv.put("nome", usu.getPessoa());
         cv.put("idade", usu.getIdade());
@@ -63,25 +65,25 @@ public class DbHelper extends SQLiteOpenHelper {
         db.close();
     }
 
-    public void atualizarUsuario(Usuario usu){
+    public void atualizarUsuario(Usuario usu) {
 
         SQLiteDatabase db = getWritableDatabase();
         ContentValues cv = new ContentValues();
 
-        cv.put("nome",usu.getPessoa());
-        cv.put("idade",usu.getIdade());
+        cv.put("nome", usu.getPessoa());
+        cv.put("idade", usu.getIdade());
 
-        db.update("Usuario", cv, "_id = ?", new String[]{""+usu.getId()});
+        db.update("Usuario", cv, "_id = ?", new String[]{"" + usu.getId()});
         db.close();
     }
 
-    public void deletarUsuario(Usuario usu){
+    public void deletarUsuario(Usuario usu) {
 
-        db.delete("Usuario" , " id = "+usu.getId(), null );
+        db.delete("Usuario", " id = " + usu.getId(), null);
 
     }
 
-    public List<Usuario> selectTodosUsuarios(){
+    public List<Usuario> selectTodosUsuarios() {
 
         List<Usuario> ListUsuarios = new ArrayList<Usuario>();
 
@@ -90,7 +92,7 @@ public class DbHelper extends SQLiteOpenHelper {
 
         Cursor c = db.rawQuery(sqlSelectTodosUsuarios, null);
 
-        if(c.moveToFirst()){
+        if (c.moveToFirst()) {
             do {
                 Usuario usu = new Usuario();
                 usu.setId(c.getInt(0));
@@ -98,10 +100,22 @@ public class DbHelper extends SQLiteOpenHelper {
                 usu.setIdade(c.getInt(2));
                 usu.setSenha(c.getInt(3));
                 ListUsuarios.add(usu);
-            }while(c.moveToNext());
+            } while (c.moveToNext());
         }
         db.close();
         return ListUsuarios;
     }
 
+    public boolean logar (String nome, String senha) {
+
+        SQLiteDatabase db = getReadableDatabase();
+        String[] campos =  {nome, senha};
+        Cursor cursor = db.query("Usuario", null, "nome= ? and senha= ?", campos, null, null, null,null);
+        if(cursor.moveToFirst()){
+            return true;
+        }
+            return false;
+
+
+    }
 }
