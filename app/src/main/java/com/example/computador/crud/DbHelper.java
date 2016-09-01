@@ -72,9 +72,9 @@ public class DbHelper extends SQLiteOpenHelper {
 
         cv.put("nome", usu.getPessoa());
         cv.put("idade", usu.getIdade());
+        cv.put("senha", usu.getSenha());
 
-        db.update("Usuario", cv, "_id = ?", new String[]{"" + usu.getId()});
-        db.close();
+        db.update("Usuario", cv, " id = ?", new String[]{  String.valueOf(usu.getId())});
     }
 
     public void deletarUsuario(Usuario usu) {

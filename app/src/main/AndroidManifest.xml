@@ -11,14 +11,17 @@
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-        <activity android:name=".TelaCadastro"></activity>
-        <activity android:name=".MostraTodosUsuarios"></activity>
-        <activity android:name=".teste"></activity>
-
+        <activity android:name=".TelaCadastro" />
+        <activity android:name=".MostraTodosUsuarios" />
+        <activity
+            android:name=".ViewPrincipalActivity"
+            android:label="@string/title_activity_view_principal"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".UsuarioAlterarDados"></activity>
     </application>
 
 </manifest>
