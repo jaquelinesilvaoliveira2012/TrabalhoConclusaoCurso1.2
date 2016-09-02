@@ -8,39 +8,38 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-/**
- * Created by COMPUTADOR on 8/18/2016.
- */
-
-
 public class TelaCadastro extends Activity {
 
-        EditText EdUsuario;
+        EditText EdEmail;
+        EditText EdConfirmaEmail;
+        EditText EdNome;
+        EditText EdSobrenome;
         EditText EdIdade;
         EditText EdSenha;
         Button BtCadastrar;
-        Button BtExcluir;
 
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.cadastrarctivity);
-        BtExcluir = (Button) findViewById(R.id.button5);
-
+        EdEmail = (EditText) findViewById(R.id.editText3);
+        EdConfirmaEmail = (EditText) findViewById(R.id.editText4);
+        EdNome = (EditText) findViewById(R.id.editText5);
+        EdSobrenome = (EditText) findViewById(R.id.editText9);
+        EdIdade = (EditText) findViewById(R.id.editText10);
+        EdSenha = (EditText) findViewById(R.id.editText11) ;
+        BtCadastrar = (Button) findViewById(R.id.btCadastrar);
     }
 
     public void cadastrarUsuario(View view){
 
-        EdUsuario = (EditText) findViewById(R.id.editText3);
-        EdIdade = (EditText) findViewById(R.id.editText4);
-        EdSenha = (EditText) findViewById(R.id.editText5);
-        BtCadastrar = (Button) findViewById(R.id.btCadastrar);
-
 
         Usuario usu = new Usuario();
-        usu.setPessoa(EdUsuario.getText().toString());
+        usu.setEmail(EdEmail.getText().toString());
+        usu.setSobrenome(EdSobrenome.getText().toString());
+        usu.setNome(EdNome.getText().toString());
         usu.setIdade(Integer.parseInt(EdIdade.getText().toString()));
-        usu.setSenha(Integer.parseInt(EdSenha.getText().toString()));
+        usu.setSenha(EdSenha.getText().toString());
 
         DbHelper dbH = new DbHelper(this);
         dbH.insertUsuario(usu);

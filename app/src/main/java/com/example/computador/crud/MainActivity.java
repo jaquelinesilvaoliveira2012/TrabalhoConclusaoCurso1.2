@@ -13,34 +13,34 @@ import android.widget.Toast;
 public class MainActivity extends AppCompatActivity {
     private static final String PREF_NAME = "LoginActivityPreference";
 
-        EditText Edlogin;
+        EditText EdEmail;
         EditText EdSenha;
         Button BtEntrar;
         CheckBox SaveLogin;
         private DbHelper db;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Edlogin = (EditText) findViewById(R.id.editText);
+        EdEmail = (EditText) findViewById(R.id.editText);
         EdSenha = (EditText) findViewById(R.id.editText2);
         BtEntrar = (Button) findViewById(R.id.button);
         SaveLogin = (CheckBox) findViewById(R.id.checkBox);
 
 
         SharedPreferences sp = getSharedPreferences(PREF_NAME, MODE_PRIVATE);
-        String nome = sp.getString("nome", "");
+        String email = sp.getString("email", "");
         String senha = sp.getString("senha", "");
 
 
         db = new DbHelper(this);
 
-            if (db.logar(nome, senha) == true) {
+            if (db.logar(email, senha) == true) {
+                int position = db.busca(email, senha);
                 Intent intent = new Intent(this, ViewPrincipalActivity.class);
                 startActivity(intent);
-            this.finish();
+                this.finish();
             }
 
     }
@@ -55,15 +55,15 @@ public class MainActivity extends AppCompatActivity {
 
     public void logar(View view){
 
-        String nome = Edlogin.getText().toString();
+        String email = EdEmail.getText().toString();
         String senha = EdSenha.getText().toString();
 
 
             boolean validacao = true;
 
-                if(nome == null || nome.equals("")){
+                if(email == null || email.equals("")){
                     validacao = false;
-                    Edlogin.setError(getString(R.string.login_valUsuario));
+                    EdEmail.setError(getString(R.string.login_valUsuario));
                 }
 
                 if(senha == null || senha.equals("")){
@@ -72,13 +72,13 @@ public class MainActivity extends AppCompatActivity {
                 }
 
                 if(validacao) {
-                    if (db.logar(nome, senha) == true) {
-
+                    if (db.logar(email, senha) == true) {
+                           int position =  db.busca(email,senha);
                             if(SaveLogin.isChecked()){
                                 SharedPreferences sp = getSharedPreferences(PREF_NAME, MODE_PRIVATE);
                                 SharedPreferences.Editor editor = sp.edit();
 
-                                editor.putString("nome", nome);
+                                editor.putString("email", email);
                                 editor.putString("senha", senha);
                                 editor.commit();
                             }

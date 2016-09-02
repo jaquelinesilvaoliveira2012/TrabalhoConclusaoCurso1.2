@@ -27,7 +27,7 @@
 
         <EditText
             android:layout_width="match_parent"
-            android:hint="nome"
+            android:hint="Email"
             android:layout_height="wrap_content"
             android:id="@+id/editText7"
             android:layout_row="4"
@@ -35,7 +35,7 @@
 
         <EditText
             android:layout_width="match_parent"
-            android:hint="Idade"
+            android:hint="Nome"
             android:layout_height="wrap_content"
             android:inputType="textPassword"
             android:ems="10"
@@ -45,18 +45,34 @@
 
         <EditText
             android:layout_width="match_parent"
-            android:hint="Senha"
+            android:hint="Sobrenome"
             android:layout_height="wrap_content"
             android:id="@+id/editText6"
             android:layout_row="6"
             android:layout_column="15" />
 
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/editText12"
+            android:layout_row="8"
+            android:hint="Idade"
+            android:layout_column="15" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/editText13"
+            android:layout_row="11"
+            android:hint="Senha"
+            android:layout_column="15" />
+
         <Button
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="61dp"
             android:text="Alterar"
             android:id="@+id/btAlterar"
-            android:layout_row="24"
+            android:layout_row="16"
             android:layout_column="15"
             android:onClick="alterarUsuario"
             android:layout_gravity="center_horizontal" />

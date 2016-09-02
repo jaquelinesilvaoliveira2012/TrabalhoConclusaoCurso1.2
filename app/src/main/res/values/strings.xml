@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">Crud</string>
     <string name="title_activity_cadastrar">Cadastrar</string>
-    <string name="login_valUsuario">Usuário Obrigatório</string>
+    <string name="login_valUsuario">Email Obrigatório</string>
     <string name="login_valSenha">Senha Obrigatório</string>
     <string name="title_activity_view_principal">ViewPrincipalActivity</string>
 

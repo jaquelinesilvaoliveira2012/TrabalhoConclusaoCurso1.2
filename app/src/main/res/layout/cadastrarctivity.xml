@@ -5,21 +5,39 @@
 
     <EditText
         android:layout_width="match_parent"
-        android:hint="Usuario"
+        android:hint="Email"
         android:layout_height="wrap_content"
         android:id="@+id/editText3" />
 
     <EditText
         android:layout_width="match_parent"
-        android:hint="idade"
+        android:hint="Confirme o seu Email"
         android:layout_height="wrap_content"
         android:id="@+id/editText4" />
 
     <EditText
         android:layout_width="match_parent"
-        android:hint="senha"
+        android:hint="Nome"
         android:layout_height="wrap_content"
         android:id="@+id/editText5" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:hint="Sobrenome"
+        android:layout_height="wrap_content"
+        android:id="@+id/editText9" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:hint="Idade"
+        android:layout_height="wrap_content"
+        android:id="@+id/editText10" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Senha"
+        android:id="@+id/editText11" />
 
     <Button
         android:layout_width="wrap_content"
@@ -36,14 +54,6 @@
         android:onClick="mostrarUsuarios"
         android:id="@+id/button4"
         android:layout_gravity="center_horizontal" />
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Excluir Usuarios"
-        android:id="@+id/button5"
-        android:layout_gravity="center_horizontal"
-        android:onClick="excluirUsuarios"/>
 
     <Button
         android:layout_width="wrap_content"

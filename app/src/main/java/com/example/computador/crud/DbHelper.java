@@ -11,17 +11,20 @@ import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by COMPUTADOR on 8/18/2016.
- */
+
 public class DbHelper extends SQLiteOpenHelper {
 
     private static final String NOME_BASE = "CadastroUsuario";
-    private static final int VERSAO_BASE = 3;
+    /* private static final String NOME_USUARIO = "nome";
+     private static final String USUARIO_PASSWORD = "senha";
+     private static final String IDADE_USUARIO = "idade";
+     private static final String UID = "id";
+     */
+    private static final int VERSAO_BASE = 6;
     private SQLiteDatabase db;
 
     public DbHelper(Context context) {
-        super(context, NOME_BASE, null, 3);
+        super(context, NOME_BASE, null, 6);
     }
 
     @Override
@@ -29,7 +32,9 @@ public class DbHelper extends SQLiteOpenHelper {
         //inserindo no banco
         String sqlCreateTabelaUsuario = "CREATE TABLE Usuario("
                 + "id INTEGER PRIMARY KEY AUTOINCREMENT,"
+                + "email TEXT,"
                 + "nome TEXT,"
+                + "sobrenome TEXT,"
                 + "idade INTEGER,"
                 + "senha INTEGER"
                 + ")";
@@ -56,8 +61,9 @@ public class DbHelper extends SQLiteOpenHelper {
 
         ContentValues cv = new ContentValues();
 
-
-        cv.put("nome", usu.getPessoa());
+        cv.put("email", usu.getEmail());
+        cv.put("nome", usu.getNome());
+        cv.put("sobrenome", usu.getSobrenome());
         cv.put("idade", usu.getIdade());
         cv.put("senha", usu.getSenha());
 
@@ -65,16 +71,17 @@ public class DbHelper extends SQLiteOpenHelper {
         db.close();
     }
 
-    public void atualizarUsuario(Usuario usu) {
+    public void atualizarUsuario(Usuario usu, int position) {
 
         SQLiteDatabase db = getWritableDatabase();
         ContentValues cv = new ContentValues();
-
-        cv.put("nome", usu.getPessoa());
+        cv.put("email", usu.getEmail());
+        cv.put("nome", usu.getNome());
+        cv.put("sobrenome", usu.getSobrenome());
         cv.put("idade", usu.getIdade());
         cv.put("senha", usu.getSenha());
 
-        db.update("Usuario", cv, " id = ?", new String[]{  String.valueOf(usu.getId())});
+        db.update("Usuario", cv, "id = ?", new String[]{"" + position});
     }
 
     public void deletarUsuario(Usuario usu) {
@@ -96,9 +103,11 @@ public class DbHelper extends SQLiteOpenHelper {
             do {
                 Usuario usu = new Usuario();
                 usu.setId(c.getInt(0));
-                usu.setPessoa(c.getString(1));
-                usu.setIdade(c.getInt(2));
-                usu.setSenha(c.getInt(3));
+                usu.setEmail(c.getString(1));
+                usu.setNome(c.getString(2));
+                usu.setSobrenome(c.getString(3));
+                usu.setIdade(c.getInt(4));
+                usu.setSenha(c.getString(5));
                 ListUsuarios.add(usu);
             } while (c.moveToNext());
         }
@@ -106,16 +115,32 @@ public class DbHelper extends SQLiteOpenHelper {
         return ListUsuarios;
     }
 
-    public boolean logar (String nome, String senha) {
-
+    public boolean logar(String email, String senha) {
         SQLiteDatabase db = getReadableDatabase();
-        String[] campos =  {nome, senha};
-        Cursor cursor = db.query("Usuario", null, "nome= ? and senha= ?", campos, null, null, null,null);
-        if(cursor.moveToFirst()){
+        String[] campos = {email, senha};
+        Cursor cursor = db.query("Usuario", null, "email= ? and senha= ?", campos, null, null, null, null);
+        if (cursor.moveToFirst()) {
             return true;
         }
-            return false;
+        return false;
 
 
     }
+
+    public int busca(String email, String senha) {
+        int position = 0;
+        SQLiteDatabase db = getReadableDatabase();
+        String[] campos = {email, senha};
+        Cursor cursor = db.query("Usuario", null, "email= ? and senha= ?", campos, null, null, null, null);
+        if (cursor.moveToFirst()) {
+                position = cursor.getInt(0);
+        }
+        return position;
+    }
 }
+
+
+
+
+
+

@@ -2,46 +2,64 @@ package com.example.computador.crud;
 
 import android.app.Activity;
 
-/**
- * Created by COMPUTADOR on 8/18/2016.
- */
+
 public class Usuario extends Activity {
 
-    private int id;
 
     @Override
     public String toString() {
         return "Usuario{" +
                 "id=" + id +
-                ", Pessoa='" + Pessoa + '\'' +
+                ", email='" + email + '\'' +
+                ", nome='" + nome + '\'' +
+                ", Sobrenome='" + Sobrenome + '\'' +
                 ", idade=" + idade +
-                ", senha=" + senha +
+                ", senha='" + senha + '\'' +
                 '}';
     }
 
-    private String Pessoa;
-    private int idade;
-    private int senha;
+    private int id, idade;
+    private String email, nome , Sobrenome, senha;
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getSobrenome() {
+        return Sobrenome;
+    }
+
+    public void setSobrenome(String sobrenome) {
+        Sobrenome = sobrenome;
+    }
+
+
 
 
     public Usuario(){}
 
-    public Usuario(int id, String Pessoa, int idade, int senha){
+    public Usuario(int id, String email, String nome, String Sobrenome, int idade, String senha){
         this.id = id;
+        this.email = email;
+        this.Sobrenome = Sobrenome;
         this.senha = senha;
-        this.Pessoa = Pessoa;
+        this.nome = nome;
         this.idade = idade;
     }
 
-    public int getSenha() {
+    public String getSenha() {
         return senha;
     }
 
-    public void setSenha(int senha) {
+    public void setSenha(String senha) {
         this.senha = senha;
     }
 
-    public int getId() {
+    public long getId() {
         return id;
     }
 
@@ -49,12 +67,12 @@ public class Usuario extends Activity {
         this.id = id;
     }
 
-    public String getPessoa() {
-        return Pessoa;
+    public String getNome() {
+        return nome;
     }
 
-    public void setPessoa(String pessoa) {
-        Pessoa = pessoa;
+    public void setNome(String nome) {
+        this.nome = nome;
     }
 
     public int getIdade() {
