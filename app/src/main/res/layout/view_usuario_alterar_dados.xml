@@ -33,6 +33,12 @@
             android:layout_row="4"
             android:layout_column="15" />
 
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="17dp"
+            android:layout_row="6"
+            android:layout_column="15" />
+
         <EditText
             android:layout_width="match_parent"
             android:hint="Nome"
@@ -40,7 +46,13 @@
             android:inputType="textPassword"
             android:ems="10"
             android:id="@+id/editText8"
-            android:layout_row="5"
+            android:layout_row="8"
+            android:layout_column="15" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="17dp"
+            android:layout_row="9"
             android:layout_column="15" />
 
         <EditText
@@ -48,34 +60,47 @@
             android:hint="Sobrenome"
             android:layout_height="wrap_content"
             android:id="@+id/editText6"
-            android:layout_row="6"
+            android:layout_row="10"
+            android:layout_column="15" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="18dp"
+            android:layout_row="11"
             android:layout_column="15" />
 
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/editText12"
-            android:layout_row="8"
+            android:layout_row="12"
             android:hint="Idade"
+            android:layout_column="15" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="18dp"
+            android:layout_row="13"
             android:layout_column="15" />
 
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/editText13"
-            android:layout_row="11"
+            android:layout_row="14"
             android:hint="Senha"
             android:layout_column="15" />
 
         <Button
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="61dp"
             android:text="Alterar"
             android:id="@+id/btAlterar"
             android:layout_row="16"
             android:layout_column="15"
             android:onClick="alterarUsuario"
-            android:layout_gravity="center_horizontal" />
+            android:layout_gravity="center_horizontal"
+            android:background="@drawable/botao" />
 
     </GridLayout>
 </RelativeLayout>
