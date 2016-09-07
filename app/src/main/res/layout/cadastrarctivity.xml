@@ -4,6 +4,15 @@
     android:layout_height="match_parent"
     android:weightSum="1">
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Dados do cadastro"
+        android:textStyle="bold"
+        android:id="@+id/textView4"
+        android:layout_gravity="center_horizontal" />
+
     <EditText
         android:layout_width="match_parent"
         android:hint="Email"
@@ -12,7 +21,7 @@
 
     <Space
         android:layout_width="match_parent"
-        android:layout_height="17dp" />
+        android:layout_height="14dp" />
 
     <EditText
         android:layout_width="match_parent"
@@ -22,7 +31,7 @@
 
     <Space
         android:layout_width="match_parent"
-        android:layout_height="17dp" />
+        android:layout_height="14dp" />
 
     <EditText
         android:layout_width="match_parent"
@@ -32,7 +41,7 @@
 
     <Space
         android:layout_width="match_parent"
-        android:layout_height="17dp" />
+        android:layout_height="14dp" />
 
     <EditText
         android:layout_width="match_parent"
@@ -42,7 +51,7 @@
 
     <Space
         android:layout_width="match_parent"
-        android:layout_height="17dp" />
+        android:layout_height="14dp" />
 
     <EditText
         android:layout_width="match_parent"
@@ -52,7 +61,7 @@
 
     <Space
         android:layout_width="match_parent"
-        android:layout_height="17dp" />
+        android:layout_height="14dp" />
 
     <EditText
         android:layout_width="match_parent"
@@ -60,25 +69,13 @@
         android:hint="Senha"
         android:id="@+id/editText11" />
 
-    <Space
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="0.33" />
-
-    <Space
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
-
-    <Space
-        android:layout_width="match_parent"
-        android:layout_height="8dp"
-        android:layout_gravity="center_horizontal" />
-
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Cadastrar"
+        android:textStyle="bold"
         android:id="@+id/btCadastrar"
+        android:textColor="#ffffff"
         android:onClick="cadastrarUsuario"
         android:background="@drawable/botao" />
 
@@ -86,16 +83,19 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Mostrar Usuarios"
+        android:textStyle="bold"
         android:onClick="mostrarUsuarios"
         android:id="@+id/button4"
-        android:layout_gravity="center_horizontal"
+        android:textColor="#ffffff"
         android:background="@drawable/botao" />
 
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Voltar"
+        android:textStyle="bold"
         android:id="@+id/btVoltar"
+        android:textColor="#ffffff"
         android:onClick="voltarJanela"
         android:background="@drawable/botao" />
 
